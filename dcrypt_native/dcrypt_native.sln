@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dcrypt_native", "dcrypt_native.vcxproj", "{FCAD6C40-E35E-4ED3-AD90-5ACEAE15A704}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp", "TestApp\TestApp.vcxproj", "{15CFD1C8-5465-4660-8DA5-D35A91B9B88A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCAD6C40-E35E-4ED3-AD90-5ACEAE15A704}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FCAD6C40-E35E-4ED3-AD90-5ACEAE15A704}.Debug|Win32.Build.0 = Debug|Win32
+		{FCAD6C40-E35E-4ED3-AD90-5ACEAE15A704}.Release|Win32.ActiveCfg = Release|Win32
+		{FCAD6C40-E35E-4ED3-AD90-5ACEAE15A704}.Release|Win32.Build.0 = Release|Win32
+		{15CFD1C8-5465-4660-8DA5-D35A91B9B88A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{15CFD1C8-5465-4660-8DA5-D35A91B9B88A}.Debug|Win32.Build.0 = Debug|Win32
+		{15CFD1C8-5465-4660-8DA5-D35A91B9B88A}.Release|Win32.ActiveCfg = Release|Win32
+		{15CFD1C8-5465-4660-8DA5-D35A91B9B88A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
