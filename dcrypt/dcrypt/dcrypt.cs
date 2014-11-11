@@ -61,6 +61,8 @@ namespace DCrypt
             if(compression == dcryptCompressionOptions.Compress)
             {
                 data = Compress(data);
+                count = data.Length;
+                offset = 0;
             }
             byte[] newdata = new byte[count + 1];
             //start in here.
