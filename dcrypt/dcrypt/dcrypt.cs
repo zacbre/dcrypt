@@ -45,6 +45,11 @@ namespace DCrypt
             File.WriteAllBytes(filepath, this.Key);
         }
 
+        public string Encrypt(string data, dcryptCompressionOptions compression = dcryptCompressionOptions.NoCompress)
+        {
+            return Convert.ToBase64String(Encrypt(Encoding.ASCII.GetBytes(data), compression));
+        }
+
         public byte[] Encrypt(byte[] data)
         {
             return Encrypt(data, 0, data.Length, dcryptCompressionOptions.NoCompress);
@@ -78,6 +83,11 @@ namespace DCrypt
             //append first byte to end.
             Buffer.BlockCopy(new byte[] {randchr}, 0, newdata, newdata.Length - 1, 1);
             return newdata;
+        }
+
+        public string Decrypt(string data)
+        {
+            return Encoding.ASCII.GetString(Decrypt(Convert.FromBase64String(data)));
         }
 
         public byte[] Decrypt(byte[] data)
