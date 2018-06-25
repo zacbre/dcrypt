@@ -1,4 +1,23 @@
 <?php
+/* 
+
+Usage:
+
+$dc = new dcrypt();
+if(file_exists("keyfile")) {
+	// Read previously saved keyfile.
+	$dc->MakeWithOldKey("keyfile");
+} else {
+	// Save keyfile.
+	$dc->OutputKey("keyfile");
+}
+$encrypted = $dc->EncryptString("This is a test");
+echo $encrypted."\n";
+$decrypted = $dc->DecryptString($encrypted);
+echo $decrypted."\n";
+
+*/
+
 define('HEIGHT', 256);
 define('WIDTH', 256);
 define('MAXSIZE', 65536);
@@ -18,7 +37,6 @@ class dcrypt {
 		fclose($file);
 			
 		$this->key = $this->deserializeKey($bytes, MAXSIZE);
-		$this->serializeKey();
 	}
 	
 	public function NewKey() {
@@ -55,11 +73,7 @@ class dcrypt {
 	
 	public function DecryptString($string) {
 		$str = base64_decode($string);
-		$data = unpack('C*', $str);
-		unset($data[0]);
-		$data = array_values($data);
-		
-		$cstr = $this->Decrypt($data, 0, count($data));
+		$cstr = $this->Decrypt($str, 0);
 		$nstr = "";
 		for ($i = 0; $i < count($cstr); $i++) {
 			$nstr .= chr($cstr[$i]);
@@ -67,7 +81,12 @@ class dcrypt {
 		return $nstr;
 	}
 	
-	public function Decrypt($data, $offset, $count) {
+	public function Decrypt($data, $offset) {
+		$data = unpack('C*', $data);
+		unset($data[0]);
+		$data = array_values($data);
+		$count = count($data);
+		
 		$output = array();
 		$chr = $data[$count - 1];
 		$xchr = 0;
@@ -179,20 +198,3 @@ class dcrypt {
 		return $bytes;
 	}
 }
-
-/* Usage */
-
-/*
-$dc = new dcrypt();
-if(file_exists("keyfile")) {
-	// Read previously saved keyfile.
-	$dc->MakeWithOldKey("keyfile");
-} else {
-	// Save keyfile.
-	$dc->OutputKey("keyfile");
-}
-$encrypted = $dc->EncryptString("This is a test");
-echo $encrypted."\n";
-$decrypted = $dc->DecryptString($encrypted);
-echo $decrypted."\n";
-*/
