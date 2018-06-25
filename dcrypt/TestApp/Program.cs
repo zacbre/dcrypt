@@ -22,7 +22,7 @@ namespace TestApp
             Console.WriteLine("{0}: {1}", "Decrypted", toByte(l));
             Console.WriteLine("Took: {0}ms", DateTime.Now.Subtract(w).TotalMilliseconds);
             Console.ReadLine();
-            Console.WriteLine("Testing string encryption: \"Test String\"");
+            Console.WriteLine("Testing string encryption: \"Congrats\"");
             string encd = f.Encrypt("Test String");
             Console.WriteLine("Encrypted String: {0}", encd);
             Console.WriteLine("Decrypted String: {0}", f.Decrypt(encd));
@@ -40,7 +40,7 @@ namespace TestApp
 
             w = DateTime.Now;
             Console.WriteLine("Encrypting 100mb test data...");
-            byte[] enc1 = f.Encrypt(p, dcryptCompressionOptions.Compress);
+            byte[] enc1 = f.Encrypt(p, dcryptCompressionOptions.NoCompress);
             Console.WriteLine("Took: {0}ms", DateTime.Now.Subtract(w).TotalMilliseconds);
             Console.ReadLine();
 
