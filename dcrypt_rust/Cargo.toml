@@ -1,0 +1,9 @@
+[package]
+name = "dcrypt"
+version = "1.0.0"
+authors = ["ThrDev"]
+edition = "2018"
+
+[dependencies]
+rand="0.7"
+rand_core="0.5.1"
